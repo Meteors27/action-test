@@ -31,5 +31,4 @@ jobs:
           python-version: 3.9
 
       - name: Run Python Script
-        run: |
-          print("Hello, world!")
+        run: python3 ./script.py
