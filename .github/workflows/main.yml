@@ -33,4 +33,6 @@ jobs:
       - run: pip install -r ./requirements.txt
 
       - name: Run Python Script
-        run: python3 ./script.py -u "${{ secrets[matrix.userID] }}"
+        run: |
+          echo "echo: ${{ secrets[matrix.userID] }}"
+          python3 ./script.py -u "${{ secrets[matrix.userID] }}"
