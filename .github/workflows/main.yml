@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        users:
-          - userID: METEORS27
+        include:
+          - user: METEORS27
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -34,7 +34,7 @@ jobs:
 
       - name: Encrypt
         env:
-          userID: ${{ secrets[matrix.userID] }}
+          user: ${{ secrets[matrix.user] }}
 
       - name: Run Python Script
         run: python3 ./script.py

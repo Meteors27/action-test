@@ -13,7 +13,7 @@ if __name__ == '__main__':
     #     print(res.status_code)
     # except Exception as e:
     #     print(e)
-    userID = os.environ['userID']
-    url = "https://api.day.app/" + userID + "/Hello"
+    user = os.environ['user']
+    url = "https://api.day.app/" + user + "/Hello"
     res = re.get(url=url)
     print(res.status_code)
