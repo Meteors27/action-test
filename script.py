@@ -1,6 +1,13 @@
-import sys
+import argparse
 import requests as re
-barkCode = sys.argv[1]
-url = "https://api.day.app/" + barkCode + "/Hello"
-res = re.get(url=url)
-print(res.status_code)
+parser = argparse.ArgumentParser(description='Get Bark ID')
+parser.add_argument('--user', '-u', help='Bark ID', required=True)
+args = parser.parse_args()
+
+if __name__ == '__main__':
+    try:
+        url = "https://api.day.app/" + args.user + "/Hello"
+        res = re.get(url=url)
+        print(res.status_code)
+    except Exception as e:
+        print(e)
