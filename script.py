@@ -6,6 +6,7 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
     try:
+        print("args.user = "+args.user)
         url = "https://api.day.app/" + args.user + "/Hello"
         res = re.get(url=url)
         print(res.status_code)
