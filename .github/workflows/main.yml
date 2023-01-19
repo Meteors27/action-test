@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         user:
-          - userID: Bark1
+          - userID: METEORS27
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -35,4 +35,4 @@ jobs:
       - name: Run Python Script
         run: |
           echo "echo: ${{ secrets[matrix.userID] }}"
-          python3 ./script.py -u "${{ secrets[matrix.userID] }}"
+          python3 ./script.py --user "${{ secrets[matrix.userID] }}"
