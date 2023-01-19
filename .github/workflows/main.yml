@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        user:
+        users:
           - userID: METEORS27
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,7 +32,9 @@ jobs:
           cache: 'pip'
       - run: pip install -r ./requirements.txt
 
+      - name: Encrypt
+        env:
+          userID: ${{ secrets[matrix.userID] }}
+
       - name: Run Python Script
-        run: |
-          echo "echo: ${{ secrets[matrix.userID] }}"
-          python3 ./script.py --user "${{ secrets[matrix.userID] }}"
+        run: python3 ./script.py
