@@ -15,6 +15,10 @@ jobs:
   RunScript:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        user:
+          - userID: Bark1
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -29,4 +33,4 @@ jobs:
       - run: pip install -r ./requirements.txt
 
       - name: Run Python Script
-        run: python3 ./script.py
+        run: python3 ./script.py ${{ secrets[matrix.userID] }}
