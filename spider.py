@@ -24,9 +24,9 @@ def spider():
                 if date in record.text:
                     title = record.findNext('a').get('title')
                     href = record.findNext('a').get('href')
-                    item = {'title': title, 'href': href}
+                    item = {'title': title, 'href': f'http://office.ckc.zju.edu.cn{href}'}
                     res.append(item)
                     # print(record.text[1:-1])
         return res
     except Exception as e:
-        return e
+        raise e
