@@ -1,8 +1,11 @@
 import os
-import requests as re
+import requests
+import spider
 # import argparse
 
 if __name__ == '__main__':
+    res = spider.spider()
+    print(res)
     try:
         user = os.environ['user']
         title = "竺可桢学院"
@@ -10,6 +13,6 @@ if __name__ == '__main__':
         link = "https://www.baidu.com"
         icon = "https://raw.github.com/Meteors27/action-test/icon/ckcLogo.png"
         url = f"https://api.day.app/{user}/{title}/{content}?url={link}?icon={icon}"
-        re.get(url=url)
+        requests.get(url=url)
     except Exception as e:
         print(e)
