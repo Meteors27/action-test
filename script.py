@@ -14,6 +14,6 @@ if __name__ == '__main__':
             url = f"https://api.day.app/{user}/{college}/{msg['title']}?url={msg['href']}?icon={icon}"
             requests.get(url=url)
     except Exception as e:
-        url = f"https://api.day.app/{user}/{college}/无法获取网页内容"
+        url = f"https://api.day.app/{user}/无法获取网页内容"
         requests.get(url=url)
         print(e)
