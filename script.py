@@ -4,10 +4,10 @@ import spider
 # import argparse
 
 if __name__ == '__main__':
+    user = os.environ['user']
     try:
         msgList = spider.spider()
         print(msgList)
-        user = os.environ['user']
         college = "竺可桢学院"
         icon = "https://raw.github.com/Meteors27/action-test/icon/ckcLogo.png"
         for msg in msgList:
